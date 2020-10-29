@@ -1,0 +1,46 @@
+@charset "ISO-8859-1";
+
+body{
+	background-color:#D3D3D3;
+}
+
+hr.rounded {
+  border-top: 2px solid #bbb;
+  border-radius: 5px;
+}
+
+.dataTableCol{
+	padding-left:250px;
+	padding-top:30px;
+	text-align:center;
+}
+
+.subtitleTextCol{
+	padding-left:120px;
+	padding-top:40px;
+}
+
+.newForm{
+		padding-left:280px;
+		padding-top:20px;
+		padding-bottom: 25px;
+}
+
+#mainDiv{
+	background-color:#F3F3F3;
+}
+
+#titleCol{
+	padding-left:100px;
+	padding-top:40px;
+}
+
+#sampleTableCol{
+	
+	padding-left:380px;
+}
+
+
+
+
+
