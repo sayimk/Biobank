@@ -1,4 +1,5 @@
 let collectionTable:HTMLTableElement;
+let collectionRadSelect:HTMLInputElement[] = [];
 
 let Fetch_Initial_Col_Data_onLoad = () =>{
     collectionTable = document.getElementById('collectionTable')as HTMLTableElement;

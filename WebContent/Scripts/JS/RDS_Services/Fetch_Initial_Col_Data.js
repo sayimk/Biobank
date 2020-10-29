@@ -1,5 +1,6 @@
 "use strict";
 let collectionTable;
+let collectionRadSelect = [];
 let Fetch_Initial_Col_Data_onLoad = () => {
     collectionTable = document.getElementById('collectionTable');
 };

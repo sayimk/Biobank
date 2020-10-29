@@ -1,6 +1,5 @@
 "use strict";
 let viewSelectionBtn;
-let collectionRadSelect = [];
 let resultInfoHead;
 let Fetch_Selected_Sample_Data_onLoad = () => {
     viewSelectionBtn = document.getElementById('viewSelection');

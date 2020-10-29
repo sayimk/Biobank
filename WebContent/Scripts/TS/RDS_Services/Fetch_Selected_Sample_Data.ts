@@ -1,5 +1,4 @@
 let viewSelectionBtn:HTMLButtonElement;
-let collectionRadSelect:HTMLInputElement[] = [];
 let resultInfoHead:HTMLHeadingElement;
 
 let Fetch_Selected_Sample_Data_onLoad = () =>{
