@@ -22,8 +22,14 @@
 		<script src="Scripts/JS/RDS_Services/Fetch_Selected_Sample_Data.js"></script>
 		<script src="Scripts/JS/RDS_Services/Send_Collection_Data.js"></script>
 		<script src="Scripts/JS/RDS_Services/Send_Sample_Data.js"></script>
-		
-		
+	
+		<!-- UI Handling Scripts -->
+		<script src="Scripts/JS/UI_Handler_Scripts/UI_Alerts.js"></script>
+		<script src="Scripts/JS/UI_Handler_Scripts/UI_Visibility_Modifiers.js"></script>
+		<script src="Scripts/JS/UI_Handler_Scripts/Event_Handler.js"></script>
+	
+		<!-- On load Events -->
+		<script src="Scripts/JS/Initialization_Scripts/onLoad.js"></script>
 		
 		
 		<title>Biobank Home</title>

@@ -1,6 +1,14 @@
 "use strict";
+let viewSelectionBtn;
+let collectionRadSelect = [];
+let resultInfoHead;
+let Fetch_Selected_Sample_Data_onLoad = () => {
+    viewSelectionBtn = document.getElementById('viewSelection');
+    resultInfoHead = document.getElementById('infoHead');
+};
 let AjaxGetSelectedSample = (selectedID) => {
-    //http://biobank.eu-west-2.elasticbeanstalk.com/
+    //http://biobank.eu-west-2.elasticbeanstalk.com/RDS_FetchSampleQuery_Service
+    //http://localhost:8080/Biobank/RDS_FetchSampleQuery_Service
     $.ajax({
         type: "post",
         url: "http://localhost:8080/Biobank/RDS_FetchSampleQuery_Service",

@@ -1,26 +1,12 @@
-
 let collectionTable:HTMLTableElement;
-let viewSelectionBtn:HTMLButtonElement;
-let collectionRadSelect:HTMLInputElement[] = [];
-let resultInfoHead:HTMLHeadingElement;
-let newCollectFormDiv:HTMLDivElement;
 
-let showNewCollectBtn:HTMLButtonElement;
-
-let addColFormTermInput:HTMLInputElement;
-let addColFormTitleInput:HTMLInputElement;
-let submitColFormBtn:HTMLButtonElement;
-    
-let dangerAlertDiv:HTMLDivElement;
-let successAlertDiv:HTMLDivElement;
-
-let newSampleFormDiv:HTMLDivElement;
-let hiddenCollectId:HTMLInputElement;
-let addSamFormDonCount:HTMLInputElement;
-let addSamFormMatType:HTMLInputElement;
-let submitSamDataBtn:HTMLButtonElement;
+let Fetch_Initial_Col_Data_onLoad = () =>{
+    collectionTable = document.getElementById('collectionTable')as HTMLTableElement;
+}
 
 //AJAX function to grab inital data
+//http://biobank.eu-west-2.elasticbeanstalk.com/RDS_InitialLoad_Service
+//http://localhost:8080/Biobank/RDS_InitialLoad_Service
 let getCollection = ()=>{
     $.ajax({
         type:"get",
@@ -80,48 +66,4 @@ let getSelectedRadioValue = ():string =>{
 
     return "-1";
 }
-
-//move to home event handlers ts/js file
-window.onload = () =>{
-    collectionTable = document.getElementById('collectionTable')as HTMLTableElement;
-    viewSelectionBtn = document.getElementById('viewSelection') as HTMLButtonElement;
-    resultInfoHead = document.getElementById('infoHead') as HTMLHeadingElement;
-    newCollectFormDiv = document.getElementById('newCollectForm') as HTMLDivElement;
-    showNewCollectBtn = document.getElementById('showAddCollectBtn') as HTMLButtonElement;
-
-    addColFormTermInput = document.getElementById('dis_term') as HTMLInputElement;
-    addColFormTitleInput = document.getElementById('dis_title') as HTMLInputElement;
-    submitColFormBtn = document.getElementById('submitColData') as HTMLButtonElement;
-
-    dangerAlertDiv = document.getElementById('dangerAlert') as HTMLDivElement;
-    successAlertDiv = document.getElementById('successAlert') as HTMLDivElement;
-
-    newSampleFormDiv = document.getElementById('newSampleForm') as HTMLDivElement;
-    hiddenCollectId = document.getElementById('collection_id') as HTMLInputElement;
-    addSamFormDonCount = document.getElementById('don_Count') as HTMLInputElement;
-    addSamFormMatType = document.getElementById('mat_Type') as HTMLInputElement;
-    submitSamDataBtn = document.getElementById('submitSamData') as HTMLButtonElement;
-
-    getCollection();
-
-    //loaded event handlers
-    viewSelectionBtn.onclick = () =>{
-        let selNumb:string = getSelectedRadioValue();
-
-        hiddenCollectId.value = selNumb;
-        AjaxGetSelectedSample(parseInt(selNumb));
-    }
-
-    showNewCollectBtn.onclick = () =>{
-        toggleAddColFormVisibility();
-    }
-    submitColFormBtn.onclick = () =>{
-        checkColFormData();
-    }
-
-    submitSamDataBtn.onclick = () =>{
-        checkSamFormData();
-    }
-}
-
 

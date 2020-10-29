@@ -1,4 +1,16 @@
 "use strict";
+let newCollectFormDiv;
+let showNewCollectBtn;
+let addColFormTermInput;
+let addColFormTitleInput;
+let submitColFormBtn;
+let Send_Collection_Data_onLoad = () => {
+    newCollectFormDiv = document.getElementById('newCollectForm');
+    showNewCollectBtn = document.getElementById('showAddCollectBtn');
+    addColFormTermInput = document.getElementById('dis_term');
+    addColFormTitleInput = document.getElementById('dis_title');
+    submitColFormBtn = document.getElementById('submitColData');
+};
 let checkColFormData = () => {
     if ((addColFormTermInput.value != "") && (addColFormTitleInput.value != "")) {
         AJAXSendColFormData(addColFormTermInput.value, addColFormTitleInput.value);
@@ -11,14 +23,14 @@ let checkColFormData = () => {
     }
 };
 let AJAXSendColFormData = (dis_Term, dis_Title) => {
-    //http://biobank.eu-west-2.elasticbeanstalk.com/
+    //http://biobank.eu-west-2.elasticbeanstalk.com/RDS_AddCollection_Service
+    //http://localhost:8080/Biobank/RDS_AddCollection_Service
     $.ajax({
         type: "post",
         url: "http://localhost:8080/Biobank/RDS_AddCollection_Service",
         dataType: "json",
         data: { term: dis_Term, title: dis_Title },
         success: (response) => {
-            //Put okay alert here,
             if (response[0] == 1) {
                 getCollection();
                 successAlert("Collection added successfully");
@@ -28,26 +40,4 @@ let AJAXSendColFormData = (dis_Term, dis_Title) => {
             }
         }
     });
-};
-//add to seperate UI hander ts
-//force window to scroll to top
-let errorAlert = (message) => {
-    dangerAlertDiv.innerHTML = "<div class=\"alert alert-danger fade show alert-dismissible\">" +
-        "<strong>Error:</strong> " + message + "<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">" +
-        "<span aria-hidden=\"true\">&times;</span>"
-        + "</button></div>";
-    window.scrollTo(0, 0);
-};
-let successAlert = (message) => {
-    successAlertDiv.innerHTML = "<div class=\"alert alert-success fade show alert-dismissible\">" +
-        "<strong>Success:</strong> " + message + "<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">" +
-        "<span aria-hidden=\"true\">&times;</span>"
-        + "</button></div>";
-    window.scrollTo(0, 0);
-};
-let toggleAddColFormVisibility = () => {
-    if (newCollectFormDiv.style.display == "none")
-        newCollectFormDiv.style.display = "block";
-    else
-        newCollectFormDiv.style.display = "none";
 };

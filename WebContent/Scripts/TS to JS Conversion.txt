@@ -1,0 +1,3 @@
+run 'tsc' in this folder
+
+run 'tsc -w'in this folder for watching mode

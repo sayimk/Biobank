@@ -1,21 +1,11 @@
 "use strict";
 let collectionTable;
-let viewSelectionBtn;
-let collectionRadSelect = [];
-let resultInfoHead;
-let newCollectFormDiv;
-let showNewCollectBtn;
-let addColFormTermInput;
-let addColFormTitleInput;
-let submitColFormBtn;
-let dangerAlertDiv;
-let successAlertDiv;
-let newSampleFormDiv;
-let hiddenCollectId;
-let addSamFormDonCount;
-let addSamFormMatType;
-let submitSamDataBtn;
+let Fetch_Initial_Col_Data_onLoad = () => {
+    collectionTable = document.getElementById('collectionTable');
+};
 //AJAX function to grab inital data
+//http://biobank.eu-west-2.elasticbeanstalk.com/RDS_InitialLoad_Service
+//http://localhost:8080/Biobank/RDS_InitialLoad_Service
 let getCollection = () => {
     $.ajax({
         type: "get",
@@ -62,38 +52,4 @@ let getSelectedRadioValue = () => {
         }
     }
     return "-1";
-};
-//move to home event handlers ts/js file
-window.onload = () => {
-    collectionTable = document.getElementById('collectionTable');
-    viewSelectionBtn = document.getElementById('viewSelection');
-    resultInfoHead = document.getElementById('infoHead');
-    newCollectFormDiv = document.getElementById('newCollectForm');
-    showNewCollectBtn = document.getElementById('showAddCollectBtn');
-    addColFormTermInput = document.getElementById('dis_term');
-    addColFormTitleInput = document.getElementById('dis_title');
-    submitColFormBtn = document.getElementById('submitColData');
-    dangerAlertDiv = document.getElementById('dangerAlert');
-    successAlertDiv = document.getElementById('successAlert');
-    newSampleFormDiv = document.getElementById('newSampleForm');
-    hiddenCollectId = document.getElementById('collection_id');
-    addSamFormDonCount = document.getElementById('don_Count');
-    addSamFormMatType = document.getElementById('mat_Type');
-    submitSamDataBtn = document.getElementById('submitSamData');
-    getCollection();
-    //loaded event handlers
-    viewSelectionBtn.onclick = () => {
-        let selNumb = getSelectedRadioValue();
-        hiddenCollectId.value = selNumb;
-        AjaxGetSelectedSample(parseInt(selNumb));
-    };
-    showNewCollectBtn.onclick = () => {
-        toggleAddColFormVisibility();
-    };
-    submitColFormBtn.onclick = () => {
-        checkColFormData();
-    };
-    submitSamDataBtn.onclick = () => {
-        checkSamFormData();
-    };
 };
